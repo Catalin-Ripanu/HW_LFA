@@ -1,0 +1,31 @@
+   + An h1 header
+   :Paragraphs are separated by a blank line:
+   :2nd paragraph <*Italic*> <**bold**>:
+      [this one; that one; the other one]
+   :Note that the actual text content starts at 4-columns in:
+   	"Block quotes are written like"
+   :Use 3 dashes for an em-dash:
+      + An h2 header
+      :Here's a list of code stuffs:
+         [a for cycle [@here] [code]; a function like [code] <static>; one last [code]]
+      :Note again how the actual text starts at 4 columns in (4 characters from the left side):
+         + An h3 header 
+         :Now a new list:
+            [First, get these; Boil some water; Don't get burned <is hot>; Dump everything in [code]]
+         :Notice again how text always lines up on 4-space indents (including that last line which continues item 3 above):
+         :Here's a link to [@a website], to a [@local doc], and to a [@section heading in the current doc]
+   + Some other markdown flavors support:
+   :Tables can look like this:
+   :A horizontal rule follows:
+   ////////////
+   :Here's a definition list:
+   :apples:
+   :Again, text is indented 4 spaces:
+   :Here's a "line block":
+   [code]
+   :and images can be specified like so:
+   [!example image]
+   :Inline math equations go in like so:
+      + Some stuff we don't really care about
+      :And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally:

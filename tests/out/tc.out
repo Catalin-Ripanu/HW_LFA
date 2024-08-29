@@ -1,0 +1,81 @@
+   + Markdown: Syntax
+   :<Note> This document is itself written using Markdown [@see the source for it by adding '.text' to the URL]
+   ////////////
+      + Overview
+         + Philosophy
+         :Markdown is intended to be as easy-to-read and easy-to-write as is feasible:
+         :Readability, however, is emphasized above all else [@Setext] [@atx] [@Textile] [@reStructuredText] [@Grutatext] [@EtText]:
+      + Block Elements
+         + Paragraphs and Line Breaks
+         :A paragraph is simply one or more consecutive lines of text, separated by one or more blank lines:
+         :The implication of the "one or more consecutive lines of text" rule is that Markdown supports "hard-wrapped" text paragraphs:
+         :When you <do> want to insert a `<br />` break tag using Markdown, you end a line with two or more spaces, then type return:
+         + Headers
+         :Markdown supports two styles of headers,:
+         :Optionally, you may "close" atx-style headers:
+         + Blockquotes
+         :Markdown uses email-style `>` characters for blockquoting:
+            "This is a blockquote with"
+         :Markdown allows you to be lazy and only put the `>` before the first line of a hard-wrapped paragraph:
+            "This is a blockquote with"
+            "Donec sit amet nisl. Aliquam"
+         :Blockquotes can be nested (i:
+            "This is the first level"
+         :Blockquotes can contain other Markdown elements, including headers, lists, and code blocks:
+            "## This is a header"
+         :Any decent text editor should make email-style quoting easy:
+         + Lists
+         :Markdown supports ordered (numbered) and unordered (bulleted) lists:
+         :Unordered lists use asterisks, pluses, and hyphens:
+            [Red; Green; Blue]
+         :is equivalent to:
+            [Red; Green; Blue]
+         :and:
+            [Red; Green; Blue]
+         :Ordered lists use numbers followed by periods:
+            [Bird; McHale; Parish]
+         :It's important to note that the actual numbers you use to mark the list have no effect on the HTML output Markdown produces:
+         :If you instead wrote the list in Markdown like this:
+            [Bird; McHale; Parish]
+         :or even:
+            [Bird; McHale; Parish]
+         :you'd get the exact same HTML output:
+         :To make lists look nice, you can wrap items with hanging indents:
+            [Lorem ipsum dolor; Donec sit amet]
+         :But if you want to be lazy, you don't have to:
+            [Lorem ipsum dolor; Donec sit amet]
+         :List items may consist of multiple paragraphs:
+            [This is a; Suspendisse id sem]
+         :It looks nice if you indent every line of the subsequent paragraphs, but here again, Markdown will allow you to be :
+            [This is a; Another item in]
+         :To put a blockquote within a list item, the blockquote's `>` delimiters need to be indented:
+            [A list item "This is a blockquote inside"]
+         :To put a code block within a list item, the code block needs to be indented <*twice*>:
+            [A list item "code"]
+         + Code Blocks
+         :Pre-formatted code blocks are used for writing about programming or markup source code:
+         :To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab:
+         :This is a normal paragraph:
+         [code]
+         :Here is an example of AppleScript:
+         [code]
+         :A code block continues until it reaches a line that is not indented (or the end of the article):
+         :Within a code block, ampersands (`&`) and angle brackets (`<` and `>`) are automatically converted into HTML entities:
+         [code]
+         :Regular Markdown syntax is not processed within code blocks:
+      + Span Elements
+         + Links
+         :Markdown supports two style of links <inline> <reference>:
+         :In both styles, the link text is delimited by:
+         :To create an inline link, use a set of regular parentheses immediately after the link text's closing square bracket <optional>:
+         :This is [@an example]:
+         :[@This link] has no title attribute:
+         + Emphasis
+         :Markdown treats asterisks (`*`) and underscores (`_`) as indicators of emphasis:
+         <single asterisks>
+         <single underscores>
+         <double asterisks>
+         <double underscores>
+         + Code
+         :To indicate a span of code, wrap it with backtick quotes:
+         :Use the `printf()` function:
