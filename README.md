@@ -1,26 +1,47 @@
 # HW_LFA
 
-Flex lexer for Markdown files.
+## Implementation Overview
 
-## Implementation
+This project implements a Flex lexer for parsing Markdown files. The main approach involves step-by-step parsing of the input text, with dedicated states for each important Markdown element.
 
-The main idea of the solution consists of parsing the input text step by step. For each important element in the text (list, emphasis element, paragraph, etc.), there is a state that governs that respective element (LIST, CODE_BL, etc.).
+### Key Components
 
-For each text element, the aim was to handle special cases (an example would be the situation where a setext header is not correct due to the number of - or =).
+1. **State-Based Parsing**:
+   - Each important Markdown element (list, emphasis, paragraph, etc.) has a corresponding state (LIST, CODE_BL, etc.).
+   - Special cases are handled for each text element (e.g., incorrect setext headers).
 
-Moreover, in the case of lists, the difficulty was related to summarizing the elements inside, obviously, it was chosen to design intermediate states for easier processing of these elements (PREP_LIST, PREP_LIST_DECISION, etc.).
+2. **List Handling**:
+   - Intermediate states (PREP_LIST, PREP_LIST_DECISION, etc.) are used for processing list elements.
+   - Handles nested elements within lists, including code blocks.
 
-An important element of the implementation is CONSUME, this state allows step-by-step summarization of important elements that are after a punctuation mark (other than comma) as it uses logic / reasoning together with the DECISION state. If, for example, the character '.' is encountered, then CONSUME will eliminate it and activate the DECISION state to continue parsing the text given in the input file. This step-by-step parsing algorithm is also used in the case of lists (as code blocks can appear inside).
+3. **CONSUME State**:
+   - Allows step-by-step summarization of important elements after punctuation marks (except commas).
+   - Works in conjunction with the DECISION state to continue parsing.
 
-When it comes to images, lists, links, their form in the text is first tested with the help of analysis states (if the form is correct, there are cases where the yyless() function is called to properly process the current candidate).
+4. **Analysis States**:
+   - Used to test the correctness of images, lists, and links in the text.
+   - Utilizes the `yyless()` function for proper processing of current candidates.
 
-Another delicate situation was summarizing a paragraph in the context of a list element because, depending on indentation, that paragraph may or may not be part of that element.
+5. **Paragraph Summarization**:
+   - Special handling for paragraphs within list elements, considering indentation.
 
-I chose to slightly personalize the example received in the statement (the test files are test1 and test2).
+6. **Customization**:
+   - The implementation slightly personalizes the example provided in the assignment statement.
 
-The platform used is Linux (with Ubuntu distribution).
+## Special Considerations
 
-Some references:
-https://daringfireball.net/projects/markdown/syntax
-https://en.wikipedia.org/wiki/Markdown
-https://manpages.debian.org/testing/flexc++/flexc++input.7.en.html
+- Setext Headers: Checks for correct number of '-' or '=' characters.
+- Lists: Handles nested elements and indentation.
+- Images, Links: Verifies correct format before processing.
+- Paragraphs in Lists: Determines inclusion based on indentation.
+
+## Testing Environment
+
+- Platform: Linux (Ubuntu distribution)
+- Test Files: test1 and test2 (customized versions of the provided example)
+
+## References
+
+1. [Markdown Syntax](https://daringfireball.net/projects/markdown/syntax)
+2. [Wikipedia: Markdown](https://en.wikipedia.org/wiki/Markdown)
+3. [Flex++ Input Format](https://manpages.debian.org/testing/flexc++/flexc++input.7.en.html)
